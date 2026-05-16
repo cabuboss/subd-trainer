@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тренажёр СУБД — подготовка к экзамену</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><span class="logo">🗄️</span> Тренажёр СУБД</h1>
+    <div class="stats" id="globalStats"></div>
+  </div>
+</header>
+
+<main class="container" id="app">
+  <!-- Главное меню -->
+  <section id="menu" class="screen active">
+    <h2>Выберите режим</h2>
+    <div class="mode-grid">
+      <div class="mode-card" data-mode="all-random">
+        <div class="mode-icon">🎲</div>
+        <h3>Все вопросы (случайно)</h3>
+        <p>Полный пул вопросов в случайном порядке</p>
+        <span class="badge" id="badgeAll">… вопросов</span>
+      </div>
+      <div class="mode-card" data-mode="flashcards">
+        <div class="mode-icon">📇</div>
+        <h3>Карточки</h3>
+        <p>Вопрос → переверни и увидь ответ. Быстрое повторение</p>
+      </div>
+      <div class="mode-card" data-mode="by-section">
+        <div class="mode-icon">📚</div>
+        <h3>По разделам</h3>
+        <p>Выбери тему: SQL, T-SQL, нормализация, транзакции и т.д.</p>
+      </div>
+      <div class="mode-card" data-mode="marathon">
+        <div class="mode-icon">🏁</div>
+        <h3>Марафон</h3>
+        <p>Пройти все вопросы по порядку без перерывов</p>
+      </div>
+    </div>
+
+    <div class="section-list" id="sectionList"></div>
+  </section>
+
+  <!-- Экран квиза -->
+  <section id="quiz" class="screen">
+    <div class="quiz-top">
+      <button class="btn-back" id="backBtn">← Меню</button>
+      <div class="progress-info">
+        <span id="qNum">0</span> / <span id="qTotal">0</span>
+        <span class="sep">·</span>
+        <span class="correct-count">✓ <span id="correctCount">0</span></span>
+        <span class="sep">·</span>
+        <span class="wrong-count">✗ <span id="wrongCount">0</span></span>
+      </div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+    <div class="question-card">
+      <div class="section-tag" id="sectionTag"></div>
+      <h2 class="question-text" id="questionText"></h2>
+      <div class="options" id="options"></div>
+    </div>
+
+    <div class="quiz-bottom">
+      <button class="btn-secondary" id="skipBtn">Пропустить →</button>
+      <button class="btn-primary hidden" id="nextBtn">Следующий вопрос →</button>
+    </div>
+  </section>
+
+  <!-- Карточки -->
+  <section id="flashcards" class="screen">
+    <div class="quiz-top">
+      <button class="btn-back" id="backBtnFC">← Меню</button>
+      <div class="progress-info">
+        <span id="fcNum">0</span> / <span id="fcTotal">0</span>
+      </div>
+    </div>
+    <div class="flashcard" id="flashcard">
+      <div class="flashcard-side flashcard-front">
+        <div class="card-label">ВОПРОС</div>
+        <div class="card-content" id="fcQuestion"></div>
+        <div class="card-hint">Кликни чтобы увидеть ответ</div>
+      </div>
+      <div class="flashcard-side flashcard-back">
+        <div class="card-label">ПРАВИЛЬНЫЙ ОТВЕТ</div>
+        <div class="card-content" id="fcAnswer"></div>
+      </div>
+    </div>
+    <div class="quiz-bottom">
+      <button class="btn-secondary" id="fcPrev">← Назад</button>
+      <button class="btn-primary" id="fcNext">Следующая →</button>
+    </div>
+  </section>
+
+  <!-- Результат -->
+  <section id="results" class="screen">
+    <div class="results-card">
+      <h2>Тренировка завершена!</h2>
+      <div class="score-circle">
+        <div class="score-value" id="scoreValue">0%</div>
+        <div class="score-label">Правильно</div>
+      </div>
+      <div class="score-detail">
+        <div><span id="finalCorrect">0</span> правильных</div>
+        <div><span id="finalWrong">0</span> ошибок</div>
+        <div><span id="finalTotal">0</span> всего</div>
+      </div>
+      <div class="results-actions">
+        <button class="btn-primary" id="restartBtn">Ещё раз</button>
+        <button class="btn-secondary" id="reviewBtn">Просмотреть ошибки</button>
+        <button class="btn-secondary" id="homeBtn">На главную</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Источник: квиз "Субд" автор Санжар Бейбитов · 354 вопроса · Подготовка к экзамену</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
