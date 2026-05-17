@@ -96,11 +96,17 @@ function plural(n) {
 }
 
 function startMode(mode, payload) {
+  // For restart from results, preserve last payload (e.g. section name)
+  if (payload === undefined && mode === state.mode && state.lastPayload !== undefined) {
+    payload = state.lastPayload;
+  }
   state.mode = mode;
+  state.lastPayload = payload;
   state.idx = 0;
   state.correct = 0;
   state.wrong = 0;
   state.answered = false;
+  state.prevErrors = state.errors;  // keep last errors for review
   state.errors = [];
 
   // For quiz/marathon, only quiz-ready questions; for flashcards — all
@@ -238,8 +244,8 @@ document.querySelectorAll('.mode-card').forEach(card => {
 $('backBtn').addEventListener('click', () => screen('menu'));
 $('backBtnFC').addEventListener('click', () => screen('menu'));
 $('homeBtn').addEventListener('click', () => screen('menu'));
-$('restartBtn').addEventListener('click', () => startMode(state.mode));
-$('reviewBtn').addEventListener('click', () => startMode('review', state.errors));
+$('restartBtn').addEventListener('click', () => startMode(state.mode, state.lastPayload));
+$('reviewBtn').addEventListener('click', () => startMode('review', state.prevErrors || state.errors));
 $('nextBtn').addEventListener('click', nextQuestion);
 $('skipBtn').addEventListener('click', nextQuestion);
 
