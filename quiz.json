@@ -59,13 +59,16 @@
     "correctText": "CREATE PROCEDURE (или CREATE PROC)"
   },
   {
-    "n": 6,
+    "n": 109,
     "question": "Может ли ограничение CHECK напрямую ссылаться на столбцы из другой таблицы?",
     "options": [
-      "Да, через связанный внешний ключ FOREIGN KEY",
-      "Нет, CHECK ссылается только на столбцы текущей таблицы"
+      "Нет, CHECK ссылается только на столбцы текущей таблицы",
+      "Да, при использовании CONSTRAINT с JOIN",
+      "Да, через подзапрос внутри CHECK",
+      "Да, если таблицы в одной схеме",
+      "Да, через связанный внешний ключ FOREIGN KEY"
     ],
-    "correctIdx": 1,
+    "correctIdx": 0,
     "correctText": "Нет, CHECK ссылается только на столбцы текущей таблицы"
   },
   {
@@ -817,11 +820,13 @@
     "correctText": "Да, с помощью команды DISABLE TRIGGER"
   },
   {
-    "n": 11,
+    "n": 110,
     "question": "Встраиваемая табличная функция (Inline Table-Valued Function) в T-SQL описывается следующим шаблоном: CREATE FUNCTION FunctionName (@Parameter1 DataType, @Parameter2 DataType) RETURNS TABLE AS RETURN ( SELECT Column1, Column2 FROM TableName WHERE Condition ); Какой из вариантов соответствует этому синтаксису?",
     "options": [
+      "CREATE FUNCTION GetData(@id INT) RETURNS TABLE AS BEGIN RETURN SELECT * FROM Orders END",
+      "CREATE FUNCTION GetData(@id INT) RETURNS TABLE AS RETURN (SELECT * FROM Orders WHERE OrderID = @id)",
       "CREATE FUNCTION GetData(@id INT) RETURNS @t TABLE(id INT) AS BEGIN INSERT INTO @t SELECT * FROM Orders RETURN END",
-      "CREATE FUNCTION GetData(@id INT) RETURNS TABLE AS RETURN (SELECT * FROM Orders WHERE OrderID = @id)"
+      "CREATE INLINE FUNCTION GetData(@id INT) RETURNS TABLE BEGIN RETURN (SELECT * FROM Orders WHERE OrderID = @id) END"
     ],
     "correctIdx": 1,
     "correctText": "CREATE FUNCTION GetData(@id INT) RETURNS TABLE AS RETURN (SELECT * FROM Orders WHERE OrderID = @id)"
