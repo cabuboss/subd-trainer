@@ -1780,6 +1780,46 @@
     "correctText": "CEILING() или CEIL()"
   },
   {
+    "n": 4,
+    "question": "Как объявляется входной параметр в функции или процедуре T-SQL?",
+    "options": [
+      "Через знак $ и имя параметра",
+      "Через знак @ и тип данных (например, @id INT)"
+    ],
+    "correctIdx": 1,
+    "correctText": "Через знак @ и тип данных (например, @id INT)"
+  },
+  {
+    "n": 12,
+    "question": "Какой оператор используется для левого внешнего соединения?",
+    "options": [
+      "SIDE JOIN",
+      "LEFT JOIN (или LEFT OUTER JOIN)"
+    ],
+    "correctIdx": 1,
+    "correctText": "LEFT JOIN (или LEFT OUTER JOIN)"
+  },
+  {
+    "n": 16,
+    "question": "Можно ли использовать вложенные циклы WHILE в T-SQL?",
+    "options": [
+      "Только при использовании курсоров",
+      "Да, можно вкладывать один цикл WHILE в другой"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, можно вкладывать один цикл WHILE в другой"
+  },
+  {
+    "n": 18,
+    "question": "В чем основное отличие WHERE от HAVING?",
+    "options": [
+      "Между ними нет разницы",
+      "WHERE фильтрует строки до группировки а HAVING после"
+    ],
+    "correctIdx": 1,
+    "correctText": "WHERE фильтрует строки до группировки а HAVING после"
+  },
+  {
     "n": 3,
     "question": "Можно ли использовать оператор DELETE с подзапросом в условии WHERE?",
     "options": [
@@ -2347,6 +2387,26 @@
     ],
     "correctIdx": 0,
     "correctText": "Запрос выполнится успешно, но вернёт пустой результат (0 строк)",
+    "flashcardOnly": true
+  },
+  {
+    "n": 3,
+    "question": "Можно ли изменять процедуру после создания?",
+    "options": [
+      "Да, с помощью команды ALTER PROCEDURE"
+    ],
+    "correctIdx": 0,
+    "correctText": "Да, с помощью команды ALTER PROCEDURE",
+    "flashcardOnly": true
+  },
+  {
+    "n": 20,
+    "question": "Какой синтаксис удаления хранимой процедуры является правильным?",
+    "options": [
+      "DROP PROCEDURE имя_процедуры"
+    ],
+    "correctIdx": 0,
+    "correctText": "DROP PROCEDURE имя_процедуры",
     "flashcardOnly": true
   }
 ]
