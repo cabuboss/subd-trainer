@@ -2480,6 +2480,406 @@
     "correctText": "IDENTITY"
   },
   {
+    "n": 1,
+    "question": "Какой синтаксис удаления пользовательской функции является правильным?",
+    "options": [
+      "REMOVE FUNCTION имя_функции",
+      "DROP FUNCTION имя_функции"
+    ],
+    "correctIdx": 1,
+    "correctText": "DROP FUNCTION имя_функции"
+  },
+  {
+    "n": 2,
+    "question": "Можно ли использовать UNION с различными именами столбцов в запросах?",
+    "options": [
+      "Да, итоговые столбцы будут взяты из второго SELECT",
+      "Да, имена итоговых столбцов будут взяты из первого SELECT, главное — чтобы совпадали типы данных и их количество"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, имена итоговых столбцов будут взяты из первого SELECT, главное — чтобы совпадали типы данных и их количество"
+  },
+  {
+    "n": 4,
+    "question": "Какой оператор объединяет результаты нескольких запросов и удаляет дубликаты?",
+    "options": [
+      "JOIN",
+      "UNION"
+    ],
+    "correctIdx": 1,
+    "correctText": "UNION"
+  },
+  {
+    "n": 5,
+    "question": "Что возвращает скалярная функция в T-SQL?",
+    "options": [
+      "Таблицу с данными",
+      "Одно значение определенного типа данных"
+    ],
+    "correctIdx": 1,
+    "correctText": "Одно значение определенного типа данных"
+  },
+  {
+    "n": 7,
+    "question": "Как выбрать сотрудников с зарплатой больше 30000 и меньше 70000?",
+    "options": [
+      "WHERE Salary BETWEEN 30000 AND 70000",
+      "WHERE Salary > 30000 AND Salary < 70000"
+    ],
+    "correctIdx": 1,
+    "correctText": "WHERE Salary > 30000 AND Salary < 70000"
+  },
+  {
+    "n": 8,
+    "question": "Как выбрать сотрудников имя которых заканчивается на 'ov'?",
+    "options": [
+      "WHERE Name LIKE '[ov]'",
+      "WHERE Name LIKE '%ov'"
+    ],
+    "correctIdx": 1,
+    "correctText": "WHERE Name LIKE '%ov'"
+  },
+  {
+    "n": 9,
+    "question": "Можно ли использовать условия внутри триггера?",
+    "options": [
+      "Только CASE, но не IF...ELSE.",
+      "Да (IF...ELSE и прочее)."
+    ],
+    "correctIdx": 1,
+    "correctText": "Да (IF...ELSE и прочее)."
+  },
+  {
+    "n": 10,
+    "question": "Чем отличается TRUNCATE от DELETE?",
+    "options": [
+      "TRUNCATE пишет лог для каждой строки, DELETE — нет.",
+      "TRUNCATE быстрее, не пишет лог для каждой строки, сбрасывает счетчик IDENTITY и не может иметь условия WHERE."
+    ],
+    "correctIdx": 1,
+    "correctText": "TRUNCATE быстрее, не пишет лог для каждой строки, сбрасывает счетчик IDENTITY и не может иметь условия WHERE."
+  },
+  {
+    "n": 11,
+    "question": "Как корректно записывается выражение с оператором IN?",
+    "options": [
+      "ColumnName IN [Value1 Value2]",
+      "ColumnName IN (Value1, Value2, ...)"
+    ],
+    "correctIdx": 1,
+    "correctText": "ColumnName IN (Value1, Value2, ...)"
+  },
+  {
+    "n": 12,
+    "question": "Какой синтаксис DELETE правильный?",
+    "options": [
+      "DELETE * FROM имя_таблицы WHERE условие;",
+      "DELETE FROM имя_таблицы WHERE условие;"
+    ],
+    "correctIdx": 1,
+    "correctText": "DELETE FROM имя_таблицы WHERE условие;"
+  },
+  {
+    "n": 13,
+    "question": "Какое ограничение задаёт конкретное значение для столбца, если при вставке оно не было указано явно?",
+    "options": [
+      "INITIAL",
+      "DEFAULT"
+    ],
+    "correctIdx": 1,
+    "correctText": "DEFAULT"
+  },
+  {
+    "n": 14,
+    "question": "Можно ли удалить функцию без команды DROP?",
+    "options": [
+      "Да, через ALTER FUNCTION с параметром DELETE",
+      "Нет, только через DROP FUNCTION"
+    ],
+    "correctIdx": 1,
+    "correctText": "Нет, только через DROP FUNCTION"
+  },
+  {
+    "n": 15,
+    "question": "Можно ли временно отключить триггер в MS SQL Server?",
+    "options": [
+      "Только через отключение всей таблицы",
+      "Да, с помощью команды DISABLE TRIGGER"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, с помощью команды DISABLE TRIGGER"
+  },
+  {
+    "n": 16,
+    "question": "Можно ли использовать условия IF...ELSE внутри триггера?",
+    "options": [
+      "Только CASE, но не IF...ELSE",
+      "Да, внутри триггера можно свободно использовать IF...ELSE"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, внутри триггера можно свободно использовать IF...ELSE"
+  },
+  {
+    "n": 17,
+    "question": "Можно ли присвоить значение переменной через SELECT в T-SQL?",
+    "options": [
+      "Только через хранимую процедуру",
+      "Да, например: SELECT @var = ColumnName FROM ..."
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, например: SELECT @var = ColumnName FROM ..."
+  },
+  {
+    "n": 18,
+    "question": "Как удалить данные с условием из таблицы?",
+    "options": [
+      "DROP FROM имя_таблицы WHERE условие",
+      "DELETE FROM имя_таблицы WHERE условие"
+    ],
+    "correctIdx": 1,
+    "correctText": "DELETE FROM имя_таблицы WHERE условие"
+  },
+  {
+    "n": 19,
+    "question": "Какая функция используется для явного преобразования типа данных в SQL?",
+    "options": [
+      "TRANSFORM()",
+      "CAST() или CONVERT()"
+    ],
+    "correctIdx": 1,
+    "correctText": "CAST() или CONVERT()"
+  },
+  {
+    "n": 20,
+    "question": "Какая виртуальная таблица в триггере T-SQL содержит новые значения?",
+    "options": [
+      "updated",
+      "inserted"
+    ],
+    "correctIdx": 1,
+    "correctText": "inserted"
+  },
+  {
+    "n": 21,
+    "question": "Можно ли использовать условия (IF...ELSE, CASE) в функциях T-SQL?",
+    "options": [
+      "Только в скалярных функциях, не в табличных",
+      "Да (IF...ELSE и CASE)"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да (IF...ELSE и CASE)"
+  },
+  {
+    "n": 23,
+    "question": "Можно ли использовать транзакции в триггерах?",
+    "options": [
+      "Нет, транзакции в триггерах запрещены",
+      "Да, чаще всего используют ROLLBACK TRANSACTION для отмены изменений"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, чаще всего используют ROLLBACK TRANSACTION для отмены изменений"
+  },
+  {
+    "n": 24,
+    "question": "Должно ли свойство IDENTITY обязательно начинаться с цифры 1?",
+    "options": [
+      "Только для первичных ключей",
+      "Нет начальное значение и шаг можно задать вручную"
+    ],
+    "correctIdx": 1,
+    "correctText": "Нет начальное значение и шаг можно задать вручную"
+  },
+  {
+    "n": 25,
+    "question": "Можно ли использовать более двух таблиц в операторе JOIN?",
+    "options": [
+      "Да, но только через вложенные подзапросы",
+      "Да количество таблиц ограничено только ресурсами сервера"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да количество таблиц ограничено только ресурсами сервера"
+  },
+  {
+    "n": 26,
+    "question": "Как включить ранее отключённый триггер в MS SQL Server?",
+    "options": [
+      "START TRIGGER имя_триггера ON имя_таблицы",
+      "ENABLE TRIGGER имя_триггера ON имя_таблицы"
+    ],
+    "correctIdx": 1,
+    "correctText": "ENABLE TRIGGER имя_триггера ON имя_таблицы"
+  },
+  {
+    "n": 27,
+    "question": "Каков корректный синтаксис удаления таблицы с именем Employees?",
+    "options": [
+      "REMOVE TABLE Employees",
+      "DROP TABLE Employees"
+    ],
+    "correctIdx": 1,
+    "correctText": "DROP TABLE Employees"
+  },
+  {
+    "n": 28,
+    "question": "Какое ограничение гарантирует уникальность значений но допускает хранение NULL?",
+    "options": [
+      "FOREIGN KEY",
+      "UNIQUE"
+    ],
+    "correctIdx": 1,
+    "correctText": "UNIQUE"
+  },
+  {
+    "n": 29,
+    "question": "Где может использоваться подзапрос в SQL?",
+    "options": [
+      "Только в WHERE и HAVING",
+      "В SELECT, FROM, WHERE, HAVING, JOIN, INSERT, UPDATE, DELETE"
+    ],
+    "correctIdx": 1,
+    "correctText": "В SELECT, FROM, WHERE, HAVING, JOIN, INSERT, UPDATE, DELETE"
+  },
+  {
+    "n": 30,
+    "question": "Как указать условие фильтрации в запросе SELECT?",
+    "options": [
+      "С помощью ключевого слова IF",
+      "С помощью ключевого слова WHERE"
+    ],
+    "correctIdx": 1,
+    "correctText": "С помощью ключевого слова WHERE"
+  },
+  {
+    "n": 32,
+    "question": "Как изменить несколько столбцов в одной команде UPDATE?",
+    "options": [
+      "Использовать UPDATE ... COLUMNS (col1, col2) VALUES (val1, val2)",
+      "Перечислить пары столбец=значение через запятую в секции SET"
+    ],
+    "correctIdx": 1,
+    "correctText": "Перечислить пары столбец=значение через запятую в секции SET"
+  },
+  {
+    "n": 35,
+    "question": "Можно ли удалить функцию или процедуру без команды DROP?",
+    "options": [
+      "Да через DELETE из системных таблиц",
+      "Нет команда DROP обязательна"
+    ],
+    "correctIdx": 1,
+    "correctText": "Нет команда DROP обязательна"
+  },
+  {
+    "n": 37,
+    "question": "Можно ли при обычной вставке (INSERT) явно указать своё значение для столбца со свойством IDENTITY в MS SQL Server?",
+    "options": [
+      "Да, всегда без каких-либо условий",
+      "Да, если предварительно выполнить SET IDENTITY_INSERT имя_таблицы ON"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, если предварительно выполнить SET IDENTITY_INSERT имя_таблицы ON"
+  },
+  {
+    "n": 38,
+    "question": "Какой синтаксис у INLINE-функции (встроенной табличной функции)?",
+    "options": [
+      "CREATE INLINE FUNCTION имя() ...",
+      "Без BEGIN...END: CREATE FUNCTION имя() RETURNS TABLE AS RETURN (SELECT ...)"
+    ],
+    "correctIdx": 1,
+    "correctText": "Без BEGIN...END: CREATE FUNCTION имя() RETURNS TABLE AS RETURN (SELECT ...)"
+  },
+  {
+    "n": 42,
+    "question": "Какое свойство в SQL Server используется для автоматического создания автоинкрементных значений?",
+    "options": [
+      "AUTO_ID",
+      "IDENTITY"
+    ],
+    "correctIdx": 1,
+    "correctText": "IDENTITY"
+  },
+  {
+    "n": 43,
+    "question": "Дан SQL-запрос. Что он вернет? SELECT ProductName FROM Products WHERE ProductID IN (SELECT ProductID FROM OrderDetails WHERE Quantity > 10);",
+    "options": [
+      "Цены товаров из заказов",
+      "Названия товаров которых заказали более 10 штук"
+    ],
+    "correctIdx": 1,
+    "correctText": "Названия товаров которых заказали более 10 штук"
+  },
+  {
+    "n": 44,
+    "question": "Что возвращает MULTI-STATEMENT табличная функция?",
+    "options": [
+      "Только целочисленное значение",
+      "Таблицу (Table-valued результат)"
+    ],
+    "correctIdx": 1,
+    "correctText": "Таблицу (Table-valued результат)"
+  },
+  {
+    "n": 45,
+    "question": "Какая функция добавляет определённое количество дней к дате в T-SQL?",
+    "options": [
+      "ADDDATE()",
+      "DATEADD()"
+    ],
+    "correctIdx": 1,
+    "correctText": "DATEADD()"
+  },
+  {
+    "n": 46,
+    "question": "Какая функция возвращает наименьшее целое число, большее или равное заданному?",
+    "options": [
+      "ROUNDUP()",
+      "CEILING() или CEIL()"
+    ],
+    "correctIdx": 1,
+    "correctText": "CEILING() или CEIL()"
+  },
+  {
+    "n": 47,
+    "question": "Что произойдёт, если не указать WHERE в операторе DELETE?",
+    "options": [
+      "Будет удалена последняя строка",
+      "Будут удалены все строки из таблицы"
+    ],
+    "correctIdx": 1,
+    "correctText": "Будут удалены все строки из таблицы"
+  },
+  {
+    "n": 48,
+    "question": "Что означает значение NULL в столбце базы данных?",
+    "options": [
+      "Пробел ' '",
+      "Отсутствие значения или «значение неизвестно» — не пустая строка и не ноль"
+    ],
+    "correctIdx": 1,
+    "correctText": "Отсутствие значения или «значение неизвестно» — не пустая строка и не ноль"
+  },
+  {
+    "n": 49,
+    "question": "Какая команда используется для создания новой базы данных?",
+    "options": [
+      "ADD DATABASE",
+      "CREATE DATABASE"
+    ],
+    "correctIdx": 1,
+    "correctText": "CREATE DATABASE"
+  },
+  {
+    "n": 50,
+    "question": "Что делает оператор DELETE?",
+    "options": [
+      "Очищает таблицу и сбрасывает счётчик IDENTITY",
+      "Удаляет строки из таблицы, не удаляя саму таблицу и её структуру"
+    ],
+    "correctIdx": 1,
+    "correctText": "Удаляет строки из таблицы, не удаляя саму таблицу и её структуру"
+  },
+  {
     "n": 3,
     "question": "Можно ли использовать оператор DELETE с подзапросом в условии WHERE?",
     "options": [
@@ -3227,6 +3627,96 @@
     ],
     "correctIdx": 0,
     "correctText": "Целочисленный статус выполнения (обычно возвращается 0, если код выполнился без ошибок).",
+    "flashcardOnly": true
+  },
+  {
+    "n": 6,
+    "question": "Что произойдёт при использовании INNER JOIN, если совпадающих значений нет?",
+    "options": [
+      "Запрос выполнится успешно, но вернёт пустой результат (0 строк)"
+    ],
+    "correctIdx": 0,
+    "correctText": "Запрос выполнится успешно, но вернёт пустой результат (0 строк)",
+    "flashcardOnly": true
+  },
+  {
+    "n": 22,
+    "question": "Что вернет запрос SELECT Name FROM Students EXCEPT SELECT Name FROM Alumni, если все студенты есть и в Alumni?",
+    "options": [
+      "Пустой набор данных"
+    ],
+    "correctIdx": 0,
+    "correctText": "Пустой набор данных",
+    "flashcardOnly": true
+  },
+  {
+    "n": 31,
+    "question": "Каким символом обозначаются переменные в T-SQL?",
+    "options": [
+      "@ (например, @MyVar)"
+    ],
+    "correctIdx": 0,
+    "correctText": "@ (например, @MyVar)",
+    "flashcardOnly": true
+  },
+  {
+    "n": 33,
+    "question": "Какая функция форматирует дату или число в строку по заданному шаблону в T-SQL?",
+    "options": [
+      "FORMAT()"
+    ],
+    "correctIdx": 0,
+    "correctText": "FORMAT()",
+    "flashcardOnly": true
+  },
+  {
+    "n": 34,
+    "question": "Как выбрать записи с возрастом от 18 до 25 включительно?",
+    "options": [
+      "WHERE Age BETWEEN 18 AND 25"
+    ],
+    "correctIdx": 0,
+    "correctText": "WHERE Age BETWEEN 18 AND 25",
+    "flashcardOnly": true
+  },
+  {
+    "n": 36,
+    "question": "Что произойдет при использовании INNER JOIN без совпадающих значений?",
+    "options": [
+      "Запрос выполнится успешно, но вернет пустой набор данных (0 строк)"
+    ],
+    "correctIdx": 0,
+    "correctText": "Запрос выполнится успешно, но вернет пустой набор данных (0 строк)",
+    "flashcardOnly": true
+  },
+  {
+    "n": 39,
+    "question": "Должно ли свойство IDENTITY обязательно начинаться с цифры 1?",
+    "options": [
+      "Нет, можно задать любое начальное значение (seed) и любой шаг приращения (increment)"
+    ],
+    "correctIdx": 0,
+    "correctText": "Нет, можно задать любое начальное значение (seed) и любой шаг приращения (increment)",
+    "flashcardOnly": true
+  },
+  {
+    "n": 40,
+    "question": "Как выбрать первые 5 строк таблицы Employees?",
+    "options": [
+      "SELECT TOP 5 * FROM Employees;"
+    ],
+    "correctIdx": 0,
+    "correctText": "SELECT TOP 5 * FROM Employees;",
+    "flashcardOnly": true
+  },
+  {
+    "n": 41,
+    "question": "Для чего используется WHERE в операторе DELETE?",
+    "options": [
+      "Для фильтрации: удалить только определённые строки, а не все"
+    ],
+    "correctIdx": 0,
+    "correctText": "Для фильтрации: удалить только определённые строки, а не все",
     "flashcardOnly": true
   }
 ]
