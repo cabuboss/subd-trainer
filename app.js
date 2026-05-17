@@ -48,7 +48,11 @@ async function loadQuiz() {
     console.error('Failed to load quiz.json', e);
   }
 
-  QUIZ = QUIZ.filter(q => q.question && q.options && q.options.length >= 2 && q.correctIdx !== null && q.correctIdx !== undefined);
+  // Keep all valid: either quiz-ready (>=2 opts + correctIdx) or flashcard-only (has correctText)
+  QUIZ = QUIZ.filter(q => q.question && (
+    (q.options && q.options.length >= 2 && q.correctIdx !== null && q.correctIdx !== undefined) ||
+    (q.flashcardOnly && q.correctText)
+  ));
 
   SECTIONS = {};
   QUIZ.forEach(q => {
@@ -99,8 +103,10 @@ function startMode(mode, payload) {
   state.answered = false;
   state.errors = [];
 
-  if (mode === 'all-random') state.list = shuffle([...QUIZ]);
-  else if (mode === 'marathon') state.list = [...QUIZ];
+  // For quiz/marathon, only quiz-ready questions; for flashcards — all
+  const quizReady = QUIZ.filter(q => !q.flashcardOnly);
+  if (mode === 'all-random') state.list = shuffle([...quizReady]);
+  else if (mode === 'marathon') state.list = [...quizReady];
   else if (mode === 'flashcards') state.list = shuffle([...QUIZ]);
   else if (mode === 'section') state.list = shuffle([...SECTIONS[payload]]);
   else if (mode === 'review' && payload) state.list = [...payload];
