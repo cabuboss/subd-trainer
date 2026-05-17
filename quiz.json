@@ -194,13 +194,16 @@
     "correctText": "_ (символ нижнего подчёркивания)"
   },
   {
-    "n": 9,
+    "n": 25,
     "question": "Как получить значение выходного параметра из хранимой процедуры?",
     "options": [
+      "Объявить переменную, передать её с ключевым словом OUTPUT, затем прочитать значение",
+      "Через глобальную переменную @@OUTPUT",
+      "Только через курсор",
       "Через SELECT внутри процедуры",
-      "Объявить переменную, передать её с ключевым словом OUTPUT, затем прочитать значение"
+      "Через RETURN VALUE из процедуры"
     ],
-    "correctIdx": 1,
+    "correctIdx": 0,
     "correctText": "Объявить переменную, передать её с ключевым словом OUTPUT, затем прочитать значение"
   },
   {
@@ -214,14 +217,30 @@
     "correctText": "NOT"
   },
   {
-    "n": 2,
+    "n": 10,
+    "question": "Какое ключевое слово используется для явного задания имени ограничению?",
+    "options": [
+      "IDENTITY",
+      "LIMIT",
+      "KEY",
+      "NAME",
+      "CONSTRAINT"
+    ],
+    "correctIdx": 4,
+    "correctText": "CONSTRAINT"
+  },
+  {
+    "n": 33,
     "question": "Можно ли использовать вложенный CASE внутри другого CASE?",
     "options": [
-      "Нет, это замедляет работу БД",
-      "Да уровень вложенности может быть любым"
+      "Нет, вложенные CASE не поддерживаются",
+      "Да, можно",
+      "Только на уровне WHERE",
+      "Только в хранимых процедурах",
+      "Только при использовании CASE WHEN"
     ],
     "correctIdx": 1,
-    "correctText": "Да уровень вложенности может быть любым"
+    "correctText": "Да, можно"
   },
   {
     "n": 62,
@@ -527,13 +546,16 @@
     "correctText": "EXISTS"
   },
   {
-    "n": 34,
+    "n": 20,
     "question": "Какая команда используется для объявления переменной в T-SQL?",
     "options": [
-      "DEFINE",
-      "DECLARE"
+      "DECLARE",
+      "SET",
+      "VAR",
+      "LET",
+      "DEFINE"
     ],
-    "correctIdx": 1,
+    "correctIdx": 0,
     "correctText": "DECLARE"
   },
   {
@@ -620,13 +642,15 @@
     "correctText": "Таблицу — результирующий набор данных из одного SELECT"
   },
   {
-    "n": 46,
+    "n": 39,
     "question": "Какое ограничение задает конкретное значение для столбца, если при вставке строки оно не было указано явно?",
     "options": [
-      "Ограничение AUTO_INCREMENT",
-      "Ограничение DEFAULT"
+      "Ограничение NOT NULL",
+      "Ограничение CHECK",
+      "Ограничение DEFAULT",
+      "Ограничение AUTO_INCREMENT"
     ],
-    "correctIdx": 1,
+    "correctIdx": 2,
     "correctText": "Ограничение DEFAULT"
   },
   {
@@ -699,13 +723,15 @@
     "correctText": "Привязывается к базе данных (к конкретной таблице или представлению)."
   },
   {
-    "n": 53,
+    "n": 5,
     "question": "Можно ли изменять функцию после создания?",
     "options": [
+      "Да, командой ALTER FUNCTION",
       "Нет, функцию можно только удалить и создать заново",
-      "Да, командой ALTER FUNCTION"
+      "Да, командой UPDATE FUNCTION",
+      "Да, командой MODIFY FUNCTION"
     ],
-    "correctIdx": 1,
+    "correctIdx": 0,
     "correctText": "Да, командой ALTER FUNCTION"
   },
   {
@@ -787,13 +813,16 @@
     "correctText": "INSERT INTO table1 SELECT * FROM table2"
   },
   {
-    "n": 63,
+    "n": 37,
     "question": "Можно ли вызвать хранимую процедуру с именованными параметрами?",
     "options": [
+      "Нет, параметры передаются только позиционно",
+      "Только в функциях, не в процедурах",
+      "Да, например: EXEC my_proc @FirstName = 'Ivan', @Age = 25",
       "Только при использовании OUTPUT параметров",
-      "Да, например: EXEC my_proc @FirstName = 'Ivan', @Age = 25"
+      "Только в SQL Server 2019+"
     ],
-    "correctIdx": 1,
+    "correctIdx": 2,
     "correctText": "Да, например: EXEC my_proc @FirstName = 'Ivan', @Age = 25"
   },
   {
@@ -885,11 +914,14 @@
     "correctText": "Да, процедуры предназначены для изменения состояния базы данных"
   },
   {
-    "n": 77,
+    "n": 2,
     "question": "Какими способами в CREATE TABLE можно определить ограничение (например, PRIMARY KEY)?",
     "options": [
+      "Только через ALTER TABLE после создания",
+      "На уровне столбца (рядом с типом данных) или на уровне таблицы (в конце списка столбцов)",
+      "Только на уровне столбца",
       "Только через хранимую процедуру",
-      "На уровне столбца (рядом с типом данных) или на уровне таблицы (в конце списка столбцов)"
+      "Только на уровне таблицы"
     ],
     "correctIdx": 1,
     "correctText": "На уровне столбца (рядом с типом данных) или на уровне таблицы (в конце списка столбцов)"
@@ -931,11 +963,14 @@
     "correctText": "IF условие BEGIN ... END ELSE BEGIN ... END"
   },
   {
-    "n": 85,
+    "n": 26,
     "question": "Где создаётся триггер?",
     "options": [
-      "В файле конфигурации СУБД",
-      "В базе данных, привязывается к конкретной таблице или представлению"
+      "В отдельной схеме безопасности сервера",
+      "В базе данных, привязывается к конкретной таблице или представлению",
+      "Только в хранимой процедуре",
+      "На уровне экземпляра SQL Server, вне базы данных",
+      "В файле конфигурации СУБД"
     ],
     "correctIdx": 1,
     "correctText": "В базе данных, привязывается к конкретной таблице или представлению"
@@ -984,13 +1019,16 @@
     "correctText": "Цифры 1 2 и 3"
   },
   {
-    "n": 14,
+    "n": 28,
     "question": "Можно ли удалить функцию без команды DROP?",
     "options": [
+      "Да, через команду REMOVE FUNCTION",
+      "Да, при пересоздании базы данных",
+      "Да, через команду DELETE FUNCTION",
       "Да, через ALTER FUNCTION с параметром DELETE",
       "Нет, только через DROP FUNCTION"
     ],
-    "correctIdx": 1,
+    "correctIdx": 4,
     "correctText": "Нет, только через DROP FUNCTION"
   },
   {
@@ -1122,6 +1160,18 @@
     "correctText": "По умолчанию столбец будет допускать значения NULL (если настройки базы данных не переопределены)"
   },
   {
+    "n": 15,
+    "question": "Что вернет запрос SELECT Name FROM Students INTERSECT SELECT Name FROM Alumni, если нет совпадений?",
+    "options": [
+      "Все строки из обеих таблиц",
+      "NULL значение",
+      "Ошибку выполнения",
+      "Пустой набор данных (ни одной строки)"
+    ],
+    "correctIdx": 3,
+    "correctText": "Пустой набор данных (ни одной строки)"
+  },
+  {
     "n": 108,
     "question": "Какая функция возвращает год из значения даты?",
     "options": [
@@ -1166,6 +1216,19 @@
     ],
     "correctIdx": 1,
     "correctText": "Нет игнорирует значения NULL"
+  },
+  {
+    "n": 11,
+    "question": "Что делает команда DELETE FROM table (без WHERE)?",
+    "options": [
+      "Удаляет таблицу вместе со структурой",
+      "Создаёт резервную копию перед удалением",
+      "Помечает строки как удалённые, но не удаляет физически",
+      "Удаляет все строки, структура таблицы остаётся",
+      "Удаляет только первую строку таблицы"
+    ],
+    "correctIdx": 3,
+    "correctText": "Удаляет все строки, структура таблицы остаётся"
   },
   {
     "n": 116,
@@ -1412,13 +1475,16 @@
     "correctText": "При выполнении операции UPDATE"
   },
   {
-    "n": 142,
+    "n": 21,
     "question": "Можно ли вставить несколько строк одним запросом?",
     "options": [
+      "Да, но только с использованием SELECT INTO.",
       "Нет, для этого нужен оператор BULK INSERT.",
+      "Нет, каждая строка требует отдельного INSERT.",
+      "Да, только если использовать хранимую процедуру.",
       "Да (например: INSERT INTO таблица VALUES (1), (2), (3))."
     ],
-    "correctIdx": 1,
+    "correctIdx": 4,
     "correctText": "Да (например: INSERT INTO таблица VALUES (1), (2), (3))."
   },
   {
@@ -1641,13 +1707,16 @@
     "correctText": "Да, можно соединять любое количество таблиц"
   },
   {
-    "n": 171,
+    "n": 34,
     "question": "Можно ли изменить функцию после создания в T-SQL?",
     "options": [
-      "Только в SQL Server Management Studio через GUI",
-      "Да, с помощью ALTER FUNCTION"
+      "Да, с помощью ALTER FUNCTION",
+      "Нет, функции в T-SQL неизменяемы",
+      "Да, с помощью MODIFY FUNCTION",
+      "Нет, нужно удалить и создать заново через DROP и CREATE",
+      "Только в SQL Server Management Studio через GUI"
     ],
-    "correctIdx": 1,
+    "correctIdx": 0,
     "correctText": "Да, с помощью ALTER FUNCTION"
   },
   {
@@ -1804,13 +1873,29 @@
     "correctText": "SUM"
   },
   {
-    "n": 17,
+    "n": 12,
+    "question": "Как сгруппировать данные по должности (Position)?",
+    "options": [
+      "SORT BY Position",
+      "CLUSTER BY Position",
+      "ORDER BY Position",
+      "GROUP BY Position",
+      "PARTITION BY Position"
+    ],
+    "correctIdx": 3,
+    "correctText": "GROUP BY Position"
+  },
+  {
+    "n": 19,
     "question": "Где задаётся условие фильтрации после соединения таблиц (JOIN)?",
     "options": [
+      "В секции ON",
+      "В секции SELECT",
       "В секции HAVING",
+      "В секции GROUP BY",
       "В секции WHERE"
     ],
-    "correctIdx": 1,
+    "correctIdx": 4,
     "correctText": "В секции WHERE"
   },
   {
@@ -1847,14 +1932,17 @@
     "correctText": "TRY_CONVERT"
   },
   {
-    "n": 34,
+    "n": 6,
     "question": "Как корректно записывается выражение с оператором IN?",
     "options": [
-      "WHERE имя_столбца = IN (значение1, значение2)",
-      "WHERE имя_столбца IN (значение1, значение2, ...)"
+      "ColumnName = IN (Value1, Value2)",
+      "ColumnName IN Value1 Value2",
+      "ColumnName IN (Value1, Value2, ...)",
+      "Value1 Value2 IN ColumnName",
+      "ColumnName IN [Value1 Value2]"
     ],
-    "correctIdx": 1,
-    "correctText": "WHERE имя_столбца IN (значение1, значение2, ...)"
+    "correctIdx": 2,
+    "correctText": "ColumnName IN (Value1, Value2, ...)"
   },
   {
     "n": 107,
@@ -1913,13 +2001,16 @@
     "correctText": "CONVERT()"
   },
   {
-    "n": 51,
+    "n": 23,
     "question": "Какая функция используется для явного преобразования типа данных в SQL?",
     "options": [
       "TRANSFORM()",
+      "CONVERT_TO()",
+      "CHANGE_TYPE()",
+      "TYPE()",
       "CAST() или CONVERT()"
     ],
-    "correctIdx": 1,
+    "correctIdx": 4,
     "correctText": "CAST() или CONVERT()"
   },
   {
@@ -2280,9 +2371,12 @@
     "question": "Каков корректный синтаксис удаления таблицы с именем Employees?",
     "options": [
       "REMOVE TABLE Employees",
-      "DROP TABLE Employees"
+      "DESTROY Employees",
+      "DELETE TABLE Employees",
+      "DROP TABLE Employees",
+      "ERASE Employees"
     ],
-    "correctIdx": 1,
+    "correctIdx": 3,
     "correctText": "DROP TABLE Employees"
   },
   {
@@ -2642,14 +2736,82 @@
     "correctText": "UNION удаляет дубликаты, UNION ALL сохраняет все строки"
   },
   {
-    "n": 1,
-    "question": "Какое ключевое слово используется для явного задания имени ограничению?",
+    "n": 7,
+    "question": "Какой оператор следует использовать чтобы найти сотрудников чья зарплата больше чем у ЛЮБОГО сотрудника отдела 'Sales'?",
     "options": [
-      "CONSTRAINT"
+      "> ALL",
+      "EXISTS",
+      "IN",
+      "> ANY",
+      "> SOME"
     ],
     "correctIdx": 0,
-    "correctText": "CONSTRAINT",
-    "flashcardOnly": true
+    "correctText": "> ALL"
+  },
+  {
+    "n": 13,
+    "question": "Можно ли использовать ORDER BY внутри подзапроса?",
+    "options": [
+      "Да, но только в подзапросах в секции WHERE.",
+      "Нет, ORDER BY запрещен во всех подзапросах без исключений.",
+      "Да, ORDER BY работает в любом подзапросе без ограничений.",
+      "Да, если подзапрос используется вместе с GROUP BY.",
+      "Нет (кроме случаев использования TOP или OFFSET). Подзапрос возвращает набор данных, а порядок в наборе без TOP не имеет смысла для SQL Server."
+    ],
+    "correctIdx": 4,
+    "correctText": "Нет (кроме случаев использования TOP или OFFSET). Подзапрос возвращает набор данных, а порядок в наборе без TOP не имеет смысла для SQL Server."
+  },
+  {
+    "n": 18,
+    "question": "В чём преимущество явного соединения перед неявным?",
+    "options": [
+      "Явное использует меньше памяти",
+      "Явное соединение работает быстрее неявного",
+      "Только явное соединение поддерживает несколько таблиц",
+      "Улучшает читаемость кода и защищает от случайного декартова произведения при забытом условии связи",
+      "Неявное соединение не поддерживается в SQL Server"
+    ],
+    "correctIdx": 3,
+    "correctText": "Улучшает читаемость кода и защищает от случайного декартова произведения при забытом условии связи"
+  },
+  {
+    "n": 22,
+    "question": "Какой оператор используется для цикла в T-SQL?",
+    "options": [
+      "REPEAT",
+      "FOREACH",
+      "LOOP",
+      "WHILE",
+      "FOR"
+    ],
+    "correctIdx": 3,
+    "correctText": "WHILE"
+  },
+  {
+    "n": 31,
+    "question": "Можно ли создать триггер без указания события (INSERT, UPDATE, DELETE)?",
+    "options": [
+      "Да, для DDL-триггеров",
+      "Нет, указание события является обязательным",
+      "Да, при использовании FOR EACH ROW",
+      "Да, триггер может быть универсальным",
+      "Да, если используется INSTEAD OF"
+    ],
+    "correctIdx": 1,
+    "correctText": "Нет, указание события является обязательным"
+  },
+  {
+    "n": 32,
+    "question": "Какой оператор соединяет каждую строку первой таблицы со всеми строками второй?",
+    "options": [
+      "MERGE JOIN",
+      "FULL OUTER JOIN",
+      "INNER JOIN",
+      "NATURAL JOIN",
+      "CROSS JOIN (декартово произведение)"
+    ],
+    "correctIdx": 4,
+    "correctText": "CROSS JOIN (декартово произведение)"
   },
   {
     "n": 6,
@@ -2732,16 +2894,6 @@
     "flashcardOnly": true
   },
   {
-    "n": 107,
-    "question": "Что вернет запрос SELECT Name FROM Students INTERSECT SELECT Name FROM Alumni, если нет совпадений?",
-    "options": [
-      "Пустой набор данных (ни одной строки)"
-    ],
-    "correctIdx": 0,
-    "correctText": "Пустой набор данных (ни одной строки)",
-    "flashcardOnly": true
-  },
-  {
     "n": 110,
     "question": "Сколько ограничений PRIMARY KEY может быть в одной таблице?",
     "options": [
@@ -2749,16 +2901,6 @@
     ],
     "correctIdx": 0,
     "correctText": "Только одно (может быть составным)",
-    "flashcardOnly": true
-  },
-  {
-    "n": 114,
-    "question": "Что делает команда DELETE FROM table (без WHERE)?",
-    "options": [
-      "Удаляет все строки, структура таблицы остаётся"
-    ],
-    "correctIdx": 0,
-    "correctText": "Удаляет все строки, структура таблицы остаётся",
     "flashcardOnly": true
   },
   {
@@ -2819,16 +2961,6 @@
     ],
     "correctIdx": 0,
     "correctText": "В секции WHERE (или непосредственно в секции ON при самом соединении)",
-    "flashcardOnly": true
-  },
-  {
-    "n": 14,
-    "question": "Как сгруппировать данные по должности (Position)?",
-    "options": [
-      "GROUP BY Position"
-    ],
-    "correctIdx": 0,
-    "correctText": "GROUP BY Position",
     "flashcardOnly": true
   },
   {
