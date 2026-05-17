@@ -1588,5 +1588,895 @@
     ],
     "correctIdx": 1,
     "correctText": "DROP DATABASE"
+  },
+  {
+    "n": 1,
+    "question": "Можно ли использовать триггеры для проверки сложных ограничений целостности?",
+    "options": [
+      "Только при использовании курсоров",
+      "Да это одна из основных задач триггеров"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да это одна из основных задач триггеров"
+  },
+  {
+    "n": 3,
+    "question": "Можно ли использовать встроенную функцию GETDATE() в качестве значения для ограничения DEFAULT?",
+    "options": [
+      "Только в триггерах",
+      "Да, можно"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, можно"
+  },
+  {
+    "n": 5,
+    "question": "Можно ли использовать INSERT с подзапросом?",
+    "options": [
+      "Только в хранимых процедурах",
+      "Да, с помощью конструкции INSERT INTO ... SELECT ..."
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, с помощью конструкции INSERT INTO ... SELECT ..."
+  },
+  {
+    "n": 8,
+    "question": "Какая функция объединяет строки в SQL?",
+    "options": [
+      "APPEND()",
+      "CONCAT() (или оператор + в MS SQL Server)"
+    ],
+    "correctIdx": 1,
+    "correctText": "CONCAT() (или оператор + в MS SQL Server)"
+  },
+  {
+    "n": 9,
+    "question": "Как правильно вставить данные из одной таблицы в другую (если она существует)?",
+    "options": [
+      "UPDATE Таблица1 FROM Таблица2",
+      "INSERT INTO Таблица1 SELECT * FROM Таблица2"
+    ],
+    "correctIdx": 1,
+    "correctText": "INSERT INTO Таблица1 SELECT * FROM Таблица2"
+  },
+  {
+    "n": 10,
+    "question": "Какое основное отличие UNIQUE от PRIMARY KEY?",
+    "options": [
+      "Они полностью идентичны по функциональности",
+      "PRIMARY KEY не допускает NULL и один на таблицу; UNIQUE может быть несколько и допускает NULL"
+    ],
+    "correctIdx": 1,
+    "correctText": "PRIMARY KEY не допускает NULL и один на таблицу; UNIQUE может быть несколько и допускает NULL"
+  },
+  {
+    "n": 11,
+    "question": "Встраиваемая табличная функция (Inline Table-Valued Function) в T-SQL описывается следующим шаблоном: CREATE FUNCTION FunctionName (@Parameter1 DataType, @Parameter2 DataType) RETURNS TABLE AS RETURN ( SELECT Column1, Column2 FROM TableName WHERE Condition ); Какой из вариантов соответствует этому синтаксису?",
+    "options": [
+      "CREATE FUNCTION GetData(@id INT) RETURNS @t TABLE(id INT) AS BEGIN INSERT INTO @t SELECT * FROM Orders RETURN END",
+      "CREATE FUNCTION GetData(@id INT) RETURNS TABLE AS RETURN (SELECT * FROM Orders WHERE OrderID = @id)"
+    ],
+    "correctIdx": 1,
+    "correctText": "CREATE FUNCTION GetData(@id INT) RETURNS TABLE AS RETURN (SELECT * FROM Orders WHERE OrderID = @id)"
+  },
+  {
+    "n": 12,
+    "question": "Какая функция используется для вычисления суммы значений столбца?",
+    "options": [
+      "TOTAL",
+      "SUM"
+    ],
+    "correctIdx": 1,
+    "correctText": "SUM"
+  },
+  {
+    "n": 15,
+    "question": "Какая функция возвращает абсолютное значение числа?",
+    "options": [
+      "ABSOLUTE()",
+      "ABS()"
+    ],
+    "correctIdx": 1,
+    "correctText": "ABS()"
+  },
+  {
+    "n": 16,
+    "question": "Как выбрать сотрудников, не входящих в отделы 2 и 4?",
+    "options": [
+      "WHERE DepartmentID EXCLUDE (2, 4)",
+      "WHERE DepartmentID NOT IN (2, 4)"
+    ],
+    "correctIdx": 1,
+    "correctText": "WHERE DepartmentID NOT IN (2, 4)"
+  },
+  {
+    "n": 17,
+    "question": "Где задаётся условие фильтрации после соединения таблиц (JOIN)?",
+    "options": [
+      "В секции HAVING",
+      "В секции WHERE"
+    ],
+    "correctIdx": 1,
+    "correctText": "В секции WHERE"
+  },
+  {
+    "n": 18,
+    "question": "Как получить значение выходного параметра при вызове процедуры?",
+    "options": [
+      "Через глобальную переменную @@RETURN",
+      "Использовать ключевое слово OUTPUT в EXEC"
+    ],
+    "correctIdx": 1,
+    "correctText": "Использовать ключевое слово OUTPUT в EXEC"
+  },
+  {
+    "n": 19,
+    "question": "Что произойдет, если выполнить UPDATE без предложения WHERE?",
+    "options": [
+      "Таблица будет очищена",
+      "Обновятся все строки в таблице"
+    ],
+    "correctIdx": 1,
+    "correctText": "Обновятся все строки в таблице"
+  },
+  {
+    "n": 20,
+    "question": "Какая функция заменяет часть строки на другую строку?",
+    "options": [
+      "SUBSTRING",
+      "REPLACE"
+    ],
+    "correctIdx": 1,
+    "correctText": "REPLACE"
+  },
+  {
+    "n": 22,
+    "question": "В чём различие DROP TABLE и DELETE?",
+    "options": [
+      "DROP TABLE удаляет только данные, DELETE удаляет структуру таблицы",
+      "DROP TABLE удаляет сам объект таблицы (структуру, данные, индексы), а DELETE удаляет только строки, оставляя пустую структуру"
+    ],
+    "correctIdx": 1,
+    "correctText": "DROP TABLE удаляет сам объект таблицы (структуру, данные, индексы), а DELETE удаляет только строки, оставляя пустую структуру"
+  },
+  {
+    "n": 25,
+    "question": "Можно ли использовать условия IF...ELSE внутри триггера?",
+    "options": [
+      "Нет, условия внутри триггера запрещены",
+      "Да, внутри триггера можно свободно использовать IF...ELSE"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, внутри триггера можно свободно использовать IF...ELSE"
+  },
+  {
+    "n": 26,
+    "question": "Как объединить два запроса, сохранив все дубликаты?",
+    "options": [
+      "UNION",
+      "UNION ALL"
+    ],
+    "correctIdx": 1,
+    "correctText": "UNION ALL"
+  },
+  {
+    "n": 27,
+    "question": "Как задаются несколько параметров процедуры?",
+    "options": [
+      "Передаются как массив в одном параметре",
+      "Перечисляются через запятую (например: @param1 INT, @param2 VARCHAR(50))"
+    ],
+    "correctIdx": 1,
+    "correctText": "Перечисляются через запятую (например: @param1 INT, @param2 VARCHAR(50))"
+  },
+  {
+    "n": 28,
+    "question": "Какая команда используется для изменения структуры таблицы?",
+    "options": [
+      "MODIFY TABLE",
+      "ALTER TABLE"
+    ],
+    "correctIdx": 1,
+    "correctText": "ALTER TABLE"
+  },
+  {
+    "n": 29,
+    "question": "Что произойдёт, если не указать список столбцов в INSERT?",
+    "options": [
+      "SQL автоматически определит столбцы по типам данных",
+      "В секции VALUES придётся указывать значения для всех столбцов строго в порядке их создания в таблице"
+    ],
+    "correctIdx": 1,
+    "correctText": "В секции VALUES придётся указывать значения для всех столбцов строго в порядке их создания в таблице"
+  },
+  {
+    "n": 31,
+    "question": "Можно ли комбинировать INNER JOIN и LEFT JOIN в одном запросе?",
+    "options": [
+      "Только в SQL Server Enterprise Edition",
+      "Да, можно"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, можно"
+  },
+  {
+    "n": 34,
+    "question": "Как корректно записывается выражение с оператором IN?",
+    "options": [
+      "WHERE имя_столбца = IN (значение1, значение2)",
+      "WHERE имя_столбца IN (значение1, значение2, ...)"
+    ],
+    "correctIdx": 1,
+    "correctText": "WHERE имя_столбца IN (значение1, значение2, ...)"
+  },
+  {
+    "n": 35,
+    "question": "Что означает значение NULL в столбце базы данных?",
+    "options": [
+      "Пробел ' '",
+      "Отсутствие значения или «значение неизвестно» — не пустая строка и не ноль"
+    ],
+    "correctIdx": 1,
+    "correctText": "Отсутствие значения или «значение неизвестно» — не пустая строка и не ноль"
+  },
+  {
+    "n": 36,
+    "question": "Что выведет следующий код? DECLARE @i INT=1 WHILE @i <= 3 BEGIN PRINT @i; SET @i = @i+1 END;",
+    "options": [
+      "Ошибку выполнения",
+      "Цифры 1 2 и 3"
+    ],
+    "correctIdx": 1,
+    "correctText": "Цифры 1 2 и 3"
+  },
+  {
+    "n": 37,
+    "question": "Что произойдёт при использовании INNER JOIN если совпадающих значений нет?",
+    "options": [
+      "Строки заполнятся значениями NULL",
+      "Результирующий набор будет пустым"
+    ],
+    "correctIdx": 1,
+    "correctText": "Результирующий набор будет пустым"
+  },
+  {
+    "n": 38,
+    "question": "Какой оператор сравнивает значение с КАЖДЫМ элементом подзапроса?",
+    "options": [
+      "ANY",
+      "ALL"
+    ],
+    "correctIdx": 1,
+    "correctText": "ALL"
+  },
+  {
+    "n": 40,
+    "question": "В каком случае в триггере используются обе таблицы INSERTED и DELETED?",
+    "options": [
+      "При операции вставки (INSERT)",
+      "При операции обновления данных (UPDATE)"
+    ],
+    "correctIdx": 1,
+    "correctText": "При операции обновления данных (UPDATE)"
+  },
+  {
+    "n": 41,
+    "question": "В каком случае в триггере используются обе таблицы: INSERTED и DELETED?",
+    "options": [
+      "В триггерах на уровне базы данных",
+      "При выполнении операции UPDATE"
+    ],
+    "correctIdx": 1,
+    "correctText": "При выполнении операции UPDATE"
+  },
+  {
+    "n": 42,
+    "question": "Как получить значение выходного параметра из хранимой процедуры?",
+    "options": [
+      "Через RETURN VALUE из процедуры",
+      "Объявить переменную, передать её с ключевым словом OUTPUT, затем прочитать значение"
+    ],
+    "correctIdx": 1,
+    "correctText": "Объявить переменную, передать её с ключевым словом OUTPUT, затем прочитать значение"
+  },
+  {
+    "n": 43,
+    "question": "Можно ли вызвать хранимую процедуру с именованными параметрами?",
+    "options": [
+      "Нет, параметры передаются только позиционно",
+      "Да, например: EXEC my_proc @FirstName = 'Ivan', @Age = 25"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, например: EXEC my_proc @FirstName = 'Ivan', @Age = 25"
+  },
+  {
+    "n": 45,
+    "question": "Какой оператор лучше для проверки существования строк?",
+    "options": [
+      "ANY",
+      "EXISTS"
+    ],
+    "correctIdx": 1,
+    "correctText": "EXISTS"
+  },
+  {
+    "n": 47,
+    "question": "Как выбрать сотрудников с зарплатой больше 30000 и меньше 70000?",
+    "options": [
+      "WHERE 30000 < Salary AND Salary > 70000",
+      "WHERE Salary > 30000 AND Salary < 70000"
+    ],
+    "correctIdx": 1,
+    "correctText": "WHERE Salary > 30000 AND Salary < 70000"
+  },
+  {
+    "n": 49,
+    "question": "Что вернёт запрос SELECT Name FROM Students INTERSECT SELECT Name FROM Alumni, если совпадений нет?",
+    "options": [
+      "Все строки из Alumni",
+      "Пустой набор данных (0 строк)"
+    ],
+    "correctIdx": 1,
+    "correctText": "Пустой набор данных (0 строк)"
+  },
+  {
+    "n": 50,
+    "question": "Какая функция в MS SQL Server выполняет преобразование типов с возможностью указания формата?",
+    "options": [
+      "TYPE_CHANGE()",
+      "CONVERT()"
+    ],
+    "correctIdx": 1,
+    "correctText": "CONVERT()"
+  },
+  {
+    "n": 51,
+    "question": "Какая функция используется для явного преобразования типа данных в SQL?",
+    "options": [
+      "TRANSFORM()",
+      "CAST() или CONVERT()"
+    ],
+    "correctIdx": 1,
+    "correctText": "CAST() или CONVERT()"
+  },
+  {
+    "n": 52,
+    "question": "Можно ли использовать цикл WHILE внутри пользовательских функций T-SQL?",
+    "options": [
+      "Только при условии отсутствия рекурсии",
+      "Да, в скалярных и многооператорных табличных функциях"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, в скалярных и многооператорных табличных функциях"
+  },
+  {
+    "n": 53,
+    "question": "Где может использоваться подзапрос в SQL?",
+    "options": [
+      "Только в WHERE",
+      "В SELECT, FROM, WHERE, HAVING, JOIN, INSERT, UPDATE, DELETE"
+    ],
+    "correctIdx": 1,
+    "correctText": "В SELECT, FROM, WHERE, HAVING, JOIN, INSERT, UPDATE, DELETE"
+  },
+  {
+    "n": 56,
+    "question": "Можно ли использовать условия (IF...ELSE, CASE) в функциях T-SQL?",
+    "options": [
+      "Только в скалярных функциях, не в табличных",
+      "Да (IF...ELSE и CASE)"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да (IF...ELSE и CASE)"
+  },
+  {
+    "n": 58,
+    "question": "Что такое CTE (Common Table Expression)?",
+    "options": [
+      "Системная функция для работы с XML-данными.",
+      "Временно именованный результирующий набор (используется конструкция WITH ... AS)."
+    ],
+    "correctIdx": 1,
+    "correctText": "Временно именованный результирующий набор (используется конструкция WITH ... AS)."
+  },
+  {
+    "n": 59,
+    "question": "Как выбрать сотрудников из отделов 1, 3 и 5?",
+    "options": [
+      "WHERE DepartmentID LIKE (1, 3, 5)",
+      "WHERE DepartmentID IN (1, 3, 5)"
+    ],
+    "correctIdx": 1,
+    "correctText": "WHERE DepartmentID IN (1, 3, 5)"
+  },
+  {
+    "n": 61,
+    "question": "Можно ли внутри хранимой процедуры выполнять INSERT, UPDATE и DELETE?",
+    "options": [
+      "Нет, процедуры только читают данные",
+      "Да, процедуры предназначены для изменения состояния базы данных"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, процедуры предназначены для изменения состояния базы данных"
+  },
+  {
+    "n": 62,
+    "question": "Какая конструкция используется для условного выбора значений в SQL?",
+    "options": [
+      "SWITCH ... WHEN ... BREAK",
+      "CASE ... WHEN ... THEN ... END"
+    ],
+    "correctIdx": 1,
+    "correctText": "CASE ... WHEN ... THEN ... END"
+  },
+  {
+    "n": 63,
+    "question": "Какая команда используется для создания хранимой процедуры?",
+    "options": [
+      "DEFINE PROCEDURE",
+      "CREATE PROCEDURE (или CREATE PROC)"
+    ],
+    "correctIdx": 1,
+    "correctText": "CREATE PROCEDURE (или CREATE PROC)"
+  },
+  {
+    "n": 64,
+    "question": "Возвращает все строки, где значение совпадает со всеми элементами подзапроса.\nОбъединяет два набора данных по условию.\nПроверяет, что значение принадлежит заданному диапазону.",
+    "options": [
+      "Включает дочернюю таблицу в выборку из родительской.",
+      "Проверяет, совпадает ли указанное значение хотя бы с одним элементом в заданном списке (или с результатом подзапроса)."
+    ],
+    "correctIdx": 1,
+    "correctText": "Проверяет, совпадает ли указанное значение хотя бы с одним элементом в заданном списке (или с результатом подзапроса)."
+  },
+  {
+    "n": 65,
+    "question": "Что возвращает COUNT(*)?",
+    "options": [
+      "Количество уникальных строк",
+      "Общее количество строк в таблице/группе, включая строки с NULL-значениями"
+    ],
+    "correctIdx": 1,
+    "correctText": "Общее количество строк в таблице/группе, включая строки с NULL-значениями"
+  },
+  {
+    "n": 67,
+    "question": "Для чего используется команда CREATE INDEX?",
+    "options": [
+      "Для создания новой таблицы",
+      "Для ускорения поиска и сортировки данных"
+    ],
+    "correctIdx": 1,
+    "correctText": "Для ускорения поиска и сортировки данных"
+  },
+  {
+    "n": 68,
+    "question": "Какое ограничение задаёт конкретное значение для столбца, если при вставке оно не было указано явно?",
+    "options": [
+      "INITIAL",
+      "DEFAULT"
+    ],
+    "correctIdx": 1,
+    "correctText": "DEFAULT"
+  },
+  {
+    "n": 69,
+    "question": "Как вернуть значение из функции в T-SQL?",
+    "options": [
+      "С помощью оператора OUTPUT",
+      "С помощью оператора RETURN"
+    ],
+    "correctIdx": 1,
+    "correctText": "С помощью оператора RETURN"
+  },
+  {
+    "n": 70,
+    "question": "На каком этапе выполнения SQL-запроса применяется оператор WHERE?",
+    "options": [
+      "До оператора FROM",
+      "После FROM и JOIN, но до GROUP BY и SELECT"
+    ],
+    "correctIdx": 1,
+    "correctText": "После FROM и JOIN, но до GROUP BY и SELECT"
+  },
+  {
+    "n": 71,
+    "question": "Как изменить несколько столбцов в одной команде UPDATE?",
+    "options": [
+      "Изменить столбцы можно только по одному",
+      "Перечислить пары столбец=значение через запятую в секции SET"
+    ],
+    "correctIdx": 1,
+    "correctText": "Перечислить пары столбец=значение через запятую в секции SET"
+  },
+  {
+    "n": 72,
+    "question": "Как выбрать сотрудников, имя которых заканчивается на 'ov'?",
+    "options": [
+      "WHERE Name LIKE 'ov%'",
+      "WHERE Name LIKE '%ov'"
+    ],
+    "correctIdx": 1,
+    "correctText": "WHERE Name LIKE '%ov'"
+  },
+  {
+    "n": 73,
+    "question": "Когда выполняется коррелирующий подзапрос?",
+    "options": [
+      "Один раз перед выполнением внешнего запроса",
+      "По одному разу для каждой строки внешнего запроса"
+    ],
+    "correctIdx": 1,
+    "correctText": "По одному разу для каждой строки внешнего запроса"
+  },
+  {
+    "n": 74,
+    "question": "Что произойдёт, если не указать WHERE в операторе DELETE?",
+    "options": [
+      "Будет удалена первая строка",
+      "Будут удалены все строки из таблицы"
+    ],
+    "correctIdx": 1,
+    "correctText": "Будут удалены все строки из таблицы"
+  },
+  {
+    "n": 75,
+    "question": "Можно ли указать столбцы при использовании INSERT?",
+    "options": [
+      "Да, только если таблица содержит не более 5 столбцов",
+      "Да, это правильный и самый безопасный подход"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, это правильный и самый безопасный подход"
+  },
+  {
+    "n": 77,
+    "question": "Какое ограничение гарантирует, что столбец не может содержать значение NULL?",
+    "options": [
+      "CHECK",
+      "NOT NULL"
+    ],
+    "correctIdx": 1,
+    "correctText": "NOT NULL"
+  },
+  {
+    "n": 78,
+    "question": "Что произойдет, если попытаться удалить базу данных, которая в данный момент используется?",
+    "options": [
+      "Удалятся только таблицы",
+      "Возникнет ошибка выполнения"
+    ],
+    "correctIdx": 1,
+    "correctText": "Возникнет ошибка выполнения"
+  },
+  {
+    "n": 79,
+    "question": "Как выбрать первые 5 строк таблицы Employees?",
+    "options": [
+      "SELECT * FROM Employees LIMIT 5;",
+      "SELECT TOP 5 * FROM Employees;"
+    ],
+    "correctIdx": 1,
+    "correctText": "SELECT TOP 5 * FROM Employees;"
+  },
+  {
+    "n": 80,
+    "question": "Какая команда используется для удаления триггера?",
+    "options": [
+      "DELETE TRIGGER имя_триггера",
+      "DROP TRIGGER имя_триггера"
+    ],
+    "correctIdx": 1,
+    "correctText": "DROP TRIGGER имя_триггера"
+  },
+  {
+    "n": 81,
+    "question": "Какое ограничение используется для уникальной идентификации каждой записи в таблице?",
+    "options": [
+      "NOT NULL",
+      "PRIMARY KEY"
+    ],
+    "correctIdx": 1,
+    "correctText": "PRIMARY KEY"
+  },
+  {
+    "n": 82,
+    "question": "Какая команда используется для присвоения значения переменной в T-SQL?",
+    "options": [
+      "ASSIGN @var = 10",
+      "SET (например, SET @var = 10)"
+    ],
+    "correctIdx": 1,
+    "correctText": "SET (например, SET @var = 10)"
+  },
+  {
+    "n": 83,
+    "question": "Какая виртуальная таблица в триггере содержит старые значения?",
+    "options": [
+      "PREVIOUS",
+      "DELETED"
+    ],
+    "correctIdx": 1,
+    "correctText": "DELETED"
+  },
+  {
+    "n": 85,
+    "question": "Чем хранимая процедура отличается от функции?",
+    "options": [
+      "Процедуры нельзя вызывать из запросов SELECT",
+      "Процедура не обязана что-то возвращать, вызывается через EXEC и может изменять данные; функция возвращает значение и используется в SELECT"
+    ],
+    "correctIdx": 1,
+    "correctText": "Процедура не обязана что-то возвращать, вызывается через EXEC и может изменять данные; функция возвращает значение и используется в SELECT"
+  },
+  {
+    "n": 88,
+    "question": "Что делает триггер INSTEAD OF?",
+    "options": [
+      "Выполняется после стандартной операции DML",
+      "Перехватывает операцию и отменяет её стандартное выполнение, запуская собственный код"
+    ],
+    "correctIdx": 1,
+    "correctText": "Перехватывает операцию и отменяет её стандартное выполнение, запуская собственный код"
+  },
+  {
+    "n": 89,
+    "question": "Можно ли изменить функцию после создания в T-SQL?",
+    "options": [
+      "Да, с помощью MODIFY FUNCTION",
+      "Да, с помощью ALTER FUNCTION"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, с помощью ALTER FUNCTION"
+  },
+  {
+    "n": 90,
+    "question": "Обязателен ли блок BEGIN...END в многооператорной табличной функции (MULTI-STATEMENT)?",
+    "options": [
+      "Нет, BEGIN...END необязателен",
+      "Да, BEGIN...END является обязательным для таких функций"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, BEGIN...END является обязательным для таких функций"
+  },
+  {
+    "n": 92,
+    "question": "Для чего используется WHERE в операторе DELETE?",
+    "options": [
+      "Для указания таблицы, из которой удаляются данные",
+      "Для фильтрации: удалить только определённые строки, а не все"
+    ],
+    "correctIdx": 1,
+    "correctText": "Для фильтрации: удалить только определённые строки, а не все"
+  },
+  {
+    "n": 93,
+    "question": "Какой символ используется в LIKE для обозначения любого количества символов?",
+    "options": [
+      "Звездочка *",
+      "Процент %"
+    ],
+    "correctIdx": 1,
+    "correctText": "Процент %"
+  },
+  {
+    "n": 94,
+    "question": "Какой оператор используется для удаления конкретных записей с условием?",
+    "options": [
+      "REMOVE FROM ... WHERE ...",
+      "DELETE FROM ... WHERE ..."
+    ],
+    "correctIdx": 1,
+    "correctText": "DELETE FROM ... WHERE ..."
+  },
+  {
+    "n": 95,
+    "question": "Какой оператор возвращает строки которые встречаются в обоих запросах?",
+    "options": [
+      "EXCEPT",
+      "INTERSECT"
+    ],
+    "correctIdx": 1,
+    "correctText": "INTERSECT"
+  },
+  {
+    "n": 96,
+    "question": "Какая функция возвращает год из значения даты?",
+    "options": [
+      "GET_YEAR()",
+      "YEAR()"
+    ],
+    "correctIdx": 1,
+    "correctText": "YEAR()"
+  },
+  {
+    "n": 97,
+    "question": "Как правильно вызвать скалярную пользовательскую функцию GetFullName?",
+    "options": [
+      "EXEC GetFullName()",
+      "SELECT dbo.GetFullName()"
+    ],
+    "correctIdx": 1,
+    "correctText": "SELECT dbo.GetFullName()"
+  },
+  {
+    "n": 98,
+    "question": "В чем разница между UNION и UNION ALL?",
+    "options": [
+      "UNION ALL удаляет дубликаты, а UNION — нет.",
+      "UNION удаляет дубликаты и сортирует результат, UNION ALL просто склеивает всё подряд (работает быстрее)."
+    ],
+    "correctIdx": 1,
+    "correctText": "UNION удаляет дубликаты и сортирует результат, UNION ALL просто склеивает всё подряд (работает быстрее)."
+  },
+  {
+    "n": 99,
+    "question": "Когда выражение с ALL истинно?",
+    "options": [
+      "Когда все значения в наборе уникальные.",
+      "Когда условие выполняется (является истинным) для всех значений из набора/подзапроса."
+    ],
+    "correctIdx": 1,
+    "correctText": "Когда условие выполняется (является истинным) для всех значений из набора/подзапроса."
+  },
+  {
+    "n": 100,
+    "question": "Что произойдёт, если при создании столбца не указать NULL и NOT NULL явно?",
+    "options": [
+      "Поведение зависит от типа данных столбца",
+      "По умолчанию столбец будет допускать значения NULL"
+    ],
+    "correctIdx": 1,
+    "correctText": "По умолчанию столбец будет допускать значения NULL"
+  },
+  {
+    "n": 101,
+    "question": "Чем отличается INLINE от MULTI-STATEMENT функции?",
+    "options": [
+      "INLINE поддерживает циклы, MULTI-STATEMENT — нет",
+      "INLINE возвращает результат одного SELECT без BEGIN...END; MULTI-STATEMENT содержит BEGIN...END с INSERT в возвращаемую таблицу"
+    ],
+    "correctIdx": 1,
+    "correctText": "INLINE возвращает результат одного SELECT без BEGIN...END; MULTI-STATEMENT содержит BEGIN...END с INSERT в возвращаемую таблицу"
+  },
+  {
+    "n": 102,
+    "question": "Можно ли использовать вложенный CASE внутри другого CASE?",
+    "options": [
+      "Нет, CASE нельзя вкладывать",
+      "Да уровень вложенности может быть любым"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да уровень вложенности может быть любым"
+  },
+  {
+    "n": 103,
+    "question": "Можно ли использовать оператор DELETE с подзапросом в условии WHERE?",
+    "options": [
+      "Только в хранимых процедурах",
+      "Да"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да"
+  },
+  {
+    "n": 106,
+    "question": "Что является обязательным минимумом при определении столбца в CREATE TABLE?",
+    "options": [
+      "Тип данных и ограничение PRIMARY KEY",
+      "Имя столбца и его тип данных"
+    ],
+    "correctIdx": 1,
+    "correctText": "Имя столбца и его тип данных"
+  },
+  {
+    "n": 107,
+    "question": "Он привязывается к базе данных целиком и срабатывает при её запуске\nОн вызывается вручную через команду EXEC",
+    "options": [
+      "Он используется только для выборки данных через SELECT",
+      "Он жестко привязывается к конкретной таблице или представлению и срабатывает автоматически в ответ на определенные события"
+    ],
+    "correctIdx": 1,
+    "correctText": "Он жестко привязывается к конкретной таблице или представлению и срабатывает автоматически в ответ на определенные события"
+  },
+  {
+    "n": 108,
+    "question": "Можно ли внутри хранимой процедуры выполнять INSERT UPDATE и DELETE?",
+    "options": [
+      "Нет это нарушает безопасность",
+      "Да это одна из основных функций процедур"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да это одна из основных функций процедур"
+  },
+  {
+    "n": 110,
+    "question": "Что такое коррелированный подзапрос?",
+    "options": [
+      "Подзапрос, который возвращает более одной строки.",
+      "Подзапрос, который ссылается на столбцы внешнего запроса."
+    ],
+    "correctIdx": 1,
+    "correctText": "Подзапрос, который ссылается на столбцы внешнего запроса."
+  },
+  {
+    "n": 111,
+    "question": "Какая функция возводит число в степень?",
+    "options": [
+      "EXP()",
+      "POWER()"
+    ],
+    "correctIdx": 1,
+    "correctText": "POWER()"
+  },
+  {
+    "n": 112,
+    "question": "Можно ли использовать UPDATE с подзапросом?",
+    "options": [
+      "Только в секции SET",
+      "Да, в секции SET и в WHERE"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, в секции SET и в WHERE"
+  },
+  {
+    "n": 113,
+    "question": "Какой оператор позволяет использовать сокращённую форму условного выражения (тернарный) в T-SQL?",
+    "options": [
+      "SWITCH()",
+      "IIF()"
+    ],
+    "correctIdx": 1,
+    "correctText": "IIF()"
+  },
+  {
+    "n": 115,
+    "question": "Обязательна ли конструкция ORDER BY при использовании OFFSET в MS SQL Server?",
+    "options": [
+      "Только при использовании FETCH NEXT",
+      "Да, OFFSET ... FETCH не работает без ORDER BY"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, OFFSET ... FETCH не работает без ORDER BY"
+  },
+  {
+    "n": 116,
+    "question": "Какая функция возвращает год из значения даты?",
+    "options": [
+      "GETYEAR",
+      "YEAR"
+    ],
+    "correctIdx": 1,
+    "correctText": "YEAR"
+  },
+  {
+    "n": 118,
+    "question": "Какая команда позволяет создать новую таблицу и заполнить ее данными из существующего запроса?",
+    "options": [
+      "COPY TABLE",
+      "SELECT INTO"
+    ],
+    "correctIdx": 1,
+    "correctText": "SELECT INTO"
+  },
+  {
+    "n": 119,
+    "question": "Можно ли при обычной вставке (INSERT) явно указать своё значение для столбца со свойством IDENTITY в MS SQL Server?",
+    "options": [
+      "Только через хранимую процедуру",
+      "Да, если предварительно выполнить SET IDENTITY_INSERT имя_таблицы ON"
+    ],
+    "correctIdx": 1,
+    "correctText": "Да, если предварительно выполнить SET IDENTITY_INSERT имя_таблицы ON"
+  },
+  {
+    "n": 120,
+    "question": "Какое свойство используется для автоматического создания автоинкрементных значений?",
+    "options": [
+      "AUTOINCREMENT",
+      "IDENTITY"
+    ],
+    "correctIdx": 1,
+    "correctText": "IDENTITY"
   }
 ]
