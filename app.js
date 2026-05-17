@@ -66,6 +66,53 @@ async function loadQuiz() {
   $('badgeAll').textContent = `${QUIZ.length} вопросов`;
 
   renderSectionList();
+  maybeShowResume();
+}
+
+function maybeShowResume() {
+  const saved = loadProgress();
+  if (!saved || !saved.listKeys || saved.idx >= saved.listKeys.length) return;
+  const qByKey = new Map(QUIZ.map(q => [q.question?.substring(0, 80), q]));
+  const list = saved.listKeys.map(k => qByKey.get(k)).filter(Boolean);
+  if (list.length === 0) { clearProgress(); return; }
+
+  const menu = $('menu');
+  const banner = document.createElement('div');
+  banner.style.cssText = 'background:var(--bg-card);border:1px solid var(--accent);border-radius:12px;padding:18px 22px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap';
+  const date = new Date(saved.ts).toLocaleString('ru');
+  banner.innerHTML = `
+    <div>
+      <div style="font-weight:600;font-size:16px">Продолжить с вопроса ${saved.idx + 1}/${list.length}?</div>
+      <div style="color:var(--text-dim);font-size:13px;margin-top:4px">Режим: ${saved.mode === 'all-random' ? 'Случайно' : saved.mode === 'marathon' ? 'Марафон' : saved.mode === 'flashcards' ? 'Карточки' : saved.mode} · ✓ ${saved.correct} · ✗ ${saved.wrong} · ${date}</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button id="resumeBtn" class="btn-primary">Продолжить</button>
+      <button id="discardBtn" class="btn-secondary">Заново</button>
+    </div>
+  `;
+  menu.insertBefore(banner, menu.firstChild);
+  banner.querySelector('#resumeBtn').addEventListener('click', () => {
+    state.mode = saved.mode;
+    state.lastPayload = saved.lastPayload;
+    state.list = list;
+    state.idx = saved.idx;
+    state.correct = saved.correct;
+    state.wrong = saved.wrong;
+    state.errors = (saved.errorKeys || []).map(k => qByKey.get(k)).filter(Boolean);
+    state.answered = false;
+    if (state.mode === 'flashcards') {
+      screen('flashcards');
+      renderFlashcard();
+    } else {
+      screen('quiz');
+      renderQuestion();
+    }
+    banner.remove();
+  });
+  banner.querySelector('#discardBtn').addEventListener('click', () => {
+    clearProgress();
+    banner.remove();
+  });
 }
 
 function renderSectionList() {
@@ -93,6 +140,35 @@ function plural(n) {
   if (m10 === 1 && m100 !== 11) return '';
   if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return 'а';
   return 'ов';
+}
+
+const SAVE_KEY = 'subd_progress_v1';
+
+function saveProgress() {
+  if (!state.mode || state.mode === 'review') return;
+  const data = {
+    mode: state.mode,
+    lastPayload: state.lastPayload,
+    idx: state.idx,
+    correct: state.correct,
+    wrong: state.wrong,
+    listKeys: state.list.map(q => q.question?.substring(0, 80)),
+    errorKeys: state.errors.map(q => q.question?.substring(0, 80)),
+    ts: Date.now(),
+  };
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify(data)); } catch {}
+}
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch { return null; }
+}
+
+function clearProgress() {
+  try { localStorage.removeItem(SAVE_KEY); } catch {}
 }
 
 function startMode(mode, payload) {
@@ -194,11 +270,13 @@ function handleAnswer(picked) {
 
 function nextQuestion() {
   state.idx++;
+  saveProgress();
   if (state.idx >= state.list.length) finishQuiz();
   else renderQuestion();
 }
 
 function finishQuiz() {
+  clearProgress();
   const total = state.correct + state.wrong;
   const pct = total > 0 ? Math.round((state.correct / total) * 100) : 0;
   $('scoreValue').textContent = `${pct}%`;
